@@ -1,5 +1,3 @@
-use std::vec;
-
 use crate::aoc_2022::day1::common::parse_input;
 
 pub fn solution(input: String) -> u64 {
