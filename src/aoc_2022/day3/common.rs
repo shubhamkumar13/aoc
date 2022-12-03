@@ -2,6 +2,12 @@ pub fn parse_input(source: String) -> Vec<String> {
     source.split('\n').map(|x| x.to_string()).collect()
 }
 
+use std::collections::HashSet;
+
+pub fn string_to_hashset_vec(s: String) -> HashSet<char> {
+    HashSet::from_iter(s.chars())
+}
+
 use lazy_static::lazy_static;
 use std::collections::HashMap;
 

@@ -1,9 +1,5 @@
-use crate::aoc_2022::day3::common::{parse_input, PRIORITY_MAP};
+use crate::aoc_2022::day3::common::{parse_input, string_to_hashset_vec, PRIORITY_MAP};
 use std::collections::HashSet;
-
-fn string_to_hashset_vec(s: String) -> HashSet<char> {
-    HashSet::from_iter(s.chars())
-}
 
 pub fn solution(input: String) -> usize {
     let input = parse_input(input);

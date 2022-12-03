@@ -41,7 +41,7 @@ mod tests {
     }
 
     #[test]
-    fn day1_real_p1() {
+    fn day1_p1() {
         let path = "day1_input.txt";
         let s = parse_input(generate_input_path(path).as_str());
         let result = day1::p1::solution(s);
@@ -57,7 +57,7 @@ mod tests {
     }
 
     #[test]
-    fn day1_real_p2() {
+    fn day1_p2() {
         let path = "day1_input.txt";
         let s = parse_input(generate_input_path(path).as_str());
         let result = day1::p2::solution(s);
@@ -74,7 +74,7 @@ mod tests {
     }
 
     #[test]
-    fn day2_real_p1() {
+    fn day2_p1() {
         let path = "day2_input.txt";
         let s = parse_input(generate_input_path(path).as_str());
         let result = day2::p1::solution(s);
@@ -90,7 +90,7 @@ mod tests {
     }
 
     #[test]
-    fn day2_real_p2() {
+    fn day2_p2() {
         let path = "day2_input.txt";
         let s = parse_input(generate_input_path(path).as_str());
         let result = day2::p2::solution(s);
@@ -106,10 +106,28 @@ mod tests {
     }
 
     #[test]
-    fn day3_real_p1() {
+    fn day3_p1() {
         let path = "day3_input.txt";
         let s = parse_input(generate_input_path(path).as_str());
         let result = day3::p1::solution(s);
         assert_eq!(result, 7746);
+    }
+
+    #[test]
+    fn day3_example_p2() {
+        let path = "day3_example_input.txt";
+        let s = parse_input(generate_input_path(path).as_str());
+        let result = day3::p2::solution(s);
+        // println!("{result}");
+        assert_eq!(result, 70)
+    }
+
+    #[test]
+    fn day3_p2() {
+        let path = "day3_input.txt";
+        let s = parse_input(generate_input_path(path).as_str());
+        let result = day3::p2::solution(s);
+        println!("{result}");
+        assert_eq!(result, 2604)
     }
 }
