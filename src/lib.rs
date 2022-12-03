@@ -127,7 +127,6 @@ mod tests {
         let path = "day3_input.txt";
         let s = parse_input(generate_input_path(path).as_str());
         let result = day3::p2::solution(s);
-        println!("{result}");
         assert_eq!(result, 2604)
     }
 }

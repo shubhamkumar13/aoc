@@ -9,7 +9,6 @@ fn chunker(vec: Vec<String>) -> Vec<Vec<String>> {
             0 => {
                 temp_vec.push(s);
                 chunk_vec.push(temp_vec.clone());
-                // println!("{chunk_vec:?}");
                 temp_vec.clear();
             }
             _ => {
@@ -22,7 +21,6 @@ fn chunker(vec: Vec<String>) -> Vec<Vec<String>> {
 }
 
 fn intersection(vec_str: Vec<String>) -> char {
-    // println!("{vec_str:?}");
     let intersection_set: Option<String> = vec_str
         .clone()
         .into_iter()
@@ -41,9 +39,7 @@ fn intersection(vec_str: Vec<String>) -> char {
 
 pub fn solution(input: String) -> usize {
     let input = parse_input(input);
-    // println!("{input:?}");
     let input = chunker(input);
-    // println!("{input:?}");
 
     input
         .into_iter()
