@@ -4,6 +4,7 @@ use std::{fs::File, io::Read, path::Path};
 
 use crate::aoc_2022::day1;
 use crate::aoc_2022::day2;
+use crate::aoc_2022::day3;
 
 fn parse_input(source: &str) -> String {
     let path = Path::new(source);
@@ -80,7 +81,20 @@ mod tests {
     fn day2_real_p2() {
         let s = parse_input("/home/sk/aoc/src/day2_input.txt");
         let result = day2::p2::solution(s);
-        println!("{result}");
-        assert!(true)
+        assert_eq!(result, 12411);
+    }
+
+    #[test]
+    fn day3_example_p1() {
+        let s = parse_input("/home/sk/aoc/src/day3_example_input.txt");
+        let result = day3::p1::solution(s);
+        assert_eq!(result, 157)
+    }
+
+    #[test]
+    fn day3_real_p1() {
+        let s = parse_input("/home/sk/aoc/src/day3_input.txt");
+        let result = day3::p1::solution(s);
+        assert_eq!(result, 7746);
     }
 }
