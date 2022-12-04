@@ -1,4 +1,33 @@
+mod aoc_2015;
 mod aoc_2022;
+
+#[cfg(test)]
+mod aoc_2015_tests {
+    use std::{fs::File, io::Read, path::Path};
+
+    use crate::aoc_2015::day1;
+
+    fn parse_input(source: &str) -> String {
+        let path = Path::new(source);
+        let display = path.display();
+
+        let mut file = match File::open(&path) {
+            Err(why) => panic!("couldn't open {display}: {why}"),
+            Ok(file) => file,
+        };
+
+        let mut buf = String::new();
+        let _ = file.read_to_string(&mut buf);
+
+        buf
+    }
+
+    fn generate_input_path(s: &str) -> String {
+        let mut input_path = String::from("/home/sk/aoc/src/aoc_2015/input/");
+        input_path.push_str(s);
+        input_path
+    }
+}
 
 #[cfg(test)]
 mod aoc_2022_tests {
