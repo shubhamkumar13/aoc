@@ -19,7 +19,7 @@ mod aoc_2015_tests {
         let mut buf = String::new();
         let _ = file.read_to_string(&mut buf);
 
-        buf
+        buf.trim().into()
     }
 
     fn generate_input_path(s: &str) -> String {
@@ -34,7 +34,7 @@ mod aoc_2022_tests {
 
     use std::{fs::File, io::Read, path::Path};
 
-    use crate::aoc_2022::{day1, day2, day3};
+    use crate::aoc_2022::{day1, day2, day3, day4};
 
     fn parse_input(source: &str) -> String {
         let path = Path::new(source);
@@ -48,7 +48,7 @@ mod aoc_2022_tests {
         let mut buf = String::new();
         let _ = file.read_to_string(&mut buf);
 
-        buf
+        buf.trim().into()
     }
 
     fn generate_input_path(s: &str) -> String {
@@ -152,5 +152,37 @@ mod aoc_2022_tests {
         let s = parse_input(generate_input_path(path).as_str());
         let result = day3::p2::solution(s);
         assert_eq!(result, 2604)
+    }
+
+    #[test]
+    fn day4_example_p1() {
+        let path = "day4_example_input.txt";
+        let s = parse_input(generate_input_path(path).as_str());
+        let result = day4::p1::solution(s);
+        assert_eq!(result, 2)
+    }
+
+    #[test]
+    fn day4_p1() {
+        let path = "day4_input.txt";
+        let s = parse_input(generate_input_path(path).as_str());
+        let result = day4::p1::solution(s);
+        assert_eq!(result, 459)
+    }
+
+    #[test]
+    fn day4_example_p2() {
+        let path = "day4_example_input.txt";
+        let s = parse_input(generate_input_path(path).as_str());
+        let result = day4::p2::solution(s);
+        assert_eq!(result, 4)
+    }
+
+    #[test]
+    fn day4_p2() {
+        let path = "day4_input.txt";
+        let s = parse_input(generate_input_path(path).as_str());
+        let result = day4::p2::solution(s);
+        assert_eq!(result, 779)
     }
 }
