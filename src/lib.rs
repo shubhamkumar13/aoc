@@ -199,8 +199,24 @@ mod aoc_2022_tests {
         let path = "day5_input.txt";
         let s = parse_input(generate_input_path(path).as_str());
         let result = day5::p1::solution(s);
+        assert_eq!(result, "JDTMRWCQJ".to_string())
+    }
+
+    #[test]
+    fn day5_example_p2() {
+        let path = "day5_example_input.txt";
+        let s = parse_input(generate_input_path(path).as_str());
+        let result = day5::p2::solution(s);
+        assert_eq!(result, "MCD".to_string())
+    }
+
+    #[test]
+    fn day5_p2() {
+        let path = "day5_input.txt";
+        let s = parse_input(generate_input_path(path).as_str());
+        let result = day5::p2::solution(s);
         println!("{result:?}");
-        // assert_eq!(result, "CMZ".to_string())
-        assert!(true)
+        assert!(true);
+        // assert_eq!(result, "JDTMRWCQJ".to_string())
     }
 }

@@ -45,7 +45,7 @@ fn stack_str_to_stack_map(stack_str: &str) -> HashMap<usize, CharStack> {
         .into_group_map()
 }
 
-fn parse_line_to_instr(instr: &str) -> Instr {
+fn line_to_instr(instr: &str) -> Instr {
     // move 1 from 2 to 1
     // to
     // Instr {
@@ -54,12 +54,12 @@ fn parse_line_to_instr(instr: &str) -> Instr {
     //  to : 1
     // }
 
-    let instr_vec = instr
-        .chars()
-        .filter(|x| x.is_digit(10))
-        .filter_map(|x| x.to_digit(10))
-        .map(|x| x as usize)
-        .collect::<Vec<usize>>();
+    let instr_vec: Vec<usize> = instr
+        .split_ascii_whitespace()
+        .filter(|x| x.chars().all(|x| x.is_ascii_digit()))
+        .filter_map(|x| x.parse::<usize>().ok())
+        .collect();
+    // println!("{instr_vec:?}");
     Instr {
         move_: instr_vec[0],
         from: instr_vec[1],
@@ -67,7 +67,7 @@ fn parse_line_to_instr(instr: &str) -> Instr {
     }
 }
 
-fn parse_string_to_instr_stack(instr_str: &str) -> InstrVec {
+fn instr_str_to_instr_stack(instr_str: &str) -> InstrVec {
     // move 1 from 2 to 1\nmove 3 from 1 to 3\nmove 2 from 2 to 1\nmove 1 from 1 to 2
     // to
     // [
@@ -92,12 +92,12 @@ fn parse_string_to_instr_stack(instr_str: &str) -> InstrVec {
     //         to : 2
     //     },
     // ]
-    Vec::from_iter(instr_str.split("\n").map(parse_line_to_instr))
+    Vec::from_iter(instr_str.split("\n").map(line_to_instr))
 }
 
 pub fn parse_input(source: String) -> (HashMap<usize, Vec<char>>, InstrVec) {
     let (stack_str, instr_str) = source.split_once("\n\n").unwrap_or_default();
     let char_stack_map = stack_str_to_stack_map(stack_str);
-    let instr_stack_map = parse_string_to_instr_stack(instr_str);
+    let instr_stack_map = instr_str_to_instr_stack(instr_str);
     (char_stack_map, instr_stack_map)
 }
