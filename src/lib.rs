@@ -34,7 +34,7 @@ mod aoc_2022_tests {
 
     use std::{fs::File, io::Read, path::Path};
 
-    use crate::aoc_2022::{day1, day2, day3, day4};
+    use crate::aoc_2022::{day1, day2, day3, day4, day5};
 
     fn parse_input(source: &str) -> String {
         let path = Path::new(source);
@@ -184,5 +184,23 @@ mod aoc_2022_tests {
         let s = parse_input(generate_input_path(path).as_str());
         let result = day4::p2::solution(s);
         assert_eq!(result, 779)
+    }
+
+    #[test]
+    fn day5_example_p1() {
+        let path = "day5_example_input.txt";
+        let s = parse_input(generate_input_path(path).as_str());
+        let result = day5::p1::solution(s);
+        assert_eq!(result, "CMZ".to_string())
+    }
+
+    #[test]
+    fn day5_p1() {
+        let path = "day5_input.txt";
+        let s = parse_input(generate_input_path(path).as_str());
+        let result = day5::p1::solution(s);
+        println!("{result:?}");
+        // assert_eq!(result, "CMZ".to_string())
+        assert!(true)
     }
 }
