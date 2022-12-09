@@ -34,7 +34,7 @@ mod aoc_2022_tests {
 
     use std::{fs::File, io::Read, path::Path};
 
-    use crate::aoc_2022::{day1, day2, day3, day4, day5};
+    use crate::aoc_2022::{day1, day2, day3, day4, day5, day6};
 
     fn parse_input(source: &str) -> String {
         let path = Path::new(source);
@@ -215,8 +215,38 @@ mod aoc_2022_tests {
         let path = "day5_input.txt";
         let s = parse_input(generate_input_path(path).as_str());
         let result = day5::p2::solution(s);
-        println!("{result:?}");
-        assert!(true);
-        // assert_eq!(result, "JDTMRWCQJ".to_string())
+        assert_eq!(result, "VHJDDCWRD".to_string())
+    }
+
+    #[test]
+    fn day6_example_p1() {
+        let path = "day6_example_input.txt";
+        let s = parse_input(generate_input_path(path).as_str());
+        let result = day6::p1::solution(s);
+        assert_eq!(result, 7)
+    }
+
+    #[test]
+    fn day6_p1() {
+        let path = "day6_input.txt";
+        let s = parse_input(generate_input_path(path).as_str());
+        let result = day6::p1::solution(s);
+        assert_eq!(result, 1134)
+    }
+
+    #[test]
+    fn day6_example_p2() {
+        let path = "day6_example_input.txt";
+        let s = parse_input(generate_input_path(path).as_str());
+        let result = day6::p2::solution(s);
+        assert_eq!(result, 19)
+    }
+
+    #[test]
+    fn day6_p2() {
+        let path = "day6_input.txt";
+        let s = parse_input(generate_input_path(path).as_str());
+        let result = day6::p2::solution(s);
+        assert_eq!(result, 2263)
     }
 }
